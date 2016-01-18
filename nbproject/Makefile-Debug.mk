@@ -14,15 +14,15 @@ GREP=grep
 NM=nm
 CCADMIN=CCadmin
 RANLIB=ranlib
-CC=icc
-CCC=icpc
-CXX=icpc
-FC=ifort
+CC=gcc
+CCC=g++
+CXX=g++
+FC=gfortran
 AS=as
 
 # Macros
-CND_PLATFORM=Intel-Linux
-CND_DLIB_EXT=so
+CND_PLATFORM=Cygwin-Windows
+CND_DLIB_EXT=dll
 CND_CONF=Debug
 CND_DISTDIR=dist
 CND_BUILDDIR=build
@@ -59,9 +59,9 @@ LDLIBSOPTIONS=
 
 # Build Targets
 .build-conf: ${BUILD_SUBPROJECTS}
-	"${MAKE}"  -f nbproject/Makefile-${CND_CONF}.mk ${CND_DISTDIR}/${CND_CONF}/${CND_PLATFORM}/backpropagationneuralnetwork
+	"${MAKE}"  -f nbproject/Makefile-${CND_CONF}.mk ${CND_DISTDIR}/${CND_CONF}/${CND_PLATFORM}/backpropagationneuralnetwork.exe
 
-${CND_DISTDIR}/${CND_CONF}/${CND_PLATFORM}/backpropagationneuralnetwork: ${OBJECTFILES}
+${CND_DISTDIR}/${CND_CONF}/${CND_PLATFORM}/backpropagationneuralnetwork.exe: ${OBJECTFILES}
 	${MKDIR} -p ${CND_DISTDIR}/${CND_CONF}/${CND_PLATFORM}
 	${LINK.c} -o ${CND_DISTDIR}/${CND_CONF}/${CND_PLATFORM}/backpropagationneuralnetwork ${OBJECTFILES} ${LDLIBSOPTIONS}
 
@@ -91,7 +91,7 @@ ${OBJECTDIR}/testDataSets.o: testDataSets.c
 # Clean Targets
 .clean-conf: ${CLEAN_SUBPROJECTS}
 	${RM} -r ${CND_BUILDDIR}/${CND_CONF}
-	${RM} ${CND_DISTDIR}/${CND_CONF}/${CND_PLATFORM}/backpropagationneuralnetwork
+	${RM} ${CND_DISTDIR}/${CND_CONF}/${CND_PLATFORM}/backpropagationneuralnetwork.exe
 
 # Subprojects
 .clean-subprojects:
