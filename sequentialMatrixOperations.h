@@ -23,7 +23,7 @@ void differenceOfMatrices(int numRows, int numCols, double *matrixA, double *mat
 void squareOfMatrixComponents(int numRows, int numCols, double *matrix, double *resultMatrix);
 void productOfMatricesComponents(int numRows, int numCols, double *matrixA, double*matrixB, double *resultMatrix);
 double sumOfMatrixComponents(int numRows, int numCols, double *matrix);
-void matrixTranspose(int numRows, int numCols, double *matrix, double *transposeMatrix);
+double matrixTranspose(int numRows, int numCols, double *matrix, double *transposeMatrix);
 void deleteLastRowFromMatrix(int numRows, int numCols, double *matrix, double *resultMatrix);
 
 #ifdef __cplusplus

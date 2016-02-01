@@ -39,7 +39,7 @@ int main(int argc, char** argv) {
     double *outputBiased;
     double *error, *errorSquare;
     double mse = 1.0;
-    double mseLimit = 0.00001;
+    double mseLimit = 0.009;
     double *transposeMatrix, *weightMatrixMinusBias;
     double *tempWeightDelta, *tempWeightMomentum;
 
@@ -82,7 +82,7 @@ int main(int argc, char** argv) {
             case '2':
                 printf("Loading Test Data Sets from Iris Data...\n");
                 loadIrisData(&numInputNeurons, &numOutputNeurons, &numPatterns, &inputData);
-                showRows = 10;
+                showRows = numPatterns;
                 printf("Showing Features and Labels from %d number of rows at IRIS Data Set\n", showRows);
                 display1DArrayAsMatrix(numPatterns, numInputNeurons + numOutputNeurons, inputData, showRows);
                 break;
@@ -133,7 +133,7 @@ int main(int argc, char** argv) {
     shuffleMatrix(numPatterns, numInputNeurons + numOutputNeurons, inputData);
     printf("Shuffled Data Matrix:\n");
     showRows = numPatterns;
-    display1DArrayAsMatrix(numPatterns, numInputNeurons + numOutputNeurons, inputData, showRows);
+    //display1DArrayAsMatrix(numPatterns, numInputNeurons + numOutputNeurons, inputData, showRows);
 
     generateTrainingValidationTestData(numPatterns, numInputNeurons, numOutputNeurons, trainingRows, testRows, &inputData, &trainingFeatures, &trainingLabels, &testFeatures, &testLabels);
 
@@ -183,6 +183,13 @@ int main(int argc, char** argv) {
 
     count = 0;
     while ((count++ < maxEpochs) && (mse > mseLimit)) {
+
+/*
+        shuffleMatrix(numPatterns, numInputNeurons + numOutputNeurons, inputData);
+        generateTrainingValidationTestData(numPatterns, numInputNeurons, numOutputNeurons, trainingRows, testRows, &inputData, &trainingFeatures, &trainingLabels, &testFeatures, &testLabels);
+        layer[0].output = trainingFeatures;
+*/
+
         /*
                 printf("==========================================================================\n");
                 printf("Starting Forward Propagation\n");
@@ -233,7 +240,7 @@ int main(int argc, char** argv) {
             printf("Input Matrix :\n");
             displayFeaturesLabelsAsMatrix(numInputNeurons, trainingFeatures, numOutputNeurons, trainingLabels, trainingRows);
             printf("Predicted Matrix :\n");
-            displayFeaturesLabelsAsMatrix(numInputNeurons, trainingFeatures, numOutputNeurons, layer[2].output, trainingRows);
+            displayFeaturesLabelsAsMatrix(numOutputNeurons, trainingLabels, numOutputNeurons, layer[2].output, trainingRows);
         }
         /*
                 printf("==========================================================================\n");

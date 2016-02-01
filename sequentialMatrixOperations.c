@@ -61,7 +61,8 @@ double RandomEqualREAL(double Low, double High) {
 }
 
 void shuffleMatrix(int numRows, int numCols, double * matrix) {
-    int i, j, temp;
+    int i, j;
+    double temp;
     int rowToSwap;
     srand(time(NULL));
     for (i = 0; i < numRows; i++) {
@@ -135,7 +136,7 @@ void productOfMatricesComponents(int numRows, int numCols, double *matrixA, doub
     }
 }
 
-void matrixTranspose(int numRows, int numCols, double *matrix, double *transposeMatrix) {
+double matrixTranspose(int numRows, int numCols, double *matrix, double *transposeMatrix) {
     int i, j;
     for (i = 0; i < numCols; i++) {
         for (j = 0; j < numRows; j++) {
